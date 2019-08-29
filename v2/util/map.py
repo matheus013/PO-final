@@ -1,5 +1,10 @@
 class MapIndex:
 
+    def __init__(self):
+        self.mt = []
+        self.map = {}
+        self.index = {}
+
     def mapping(self, source, cities):
         self.mt = [[0 for i in range(len(cities))] for i in range(len(cities))]
         self.map = {}

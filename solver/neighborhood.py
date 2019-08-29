@@ -1,9 +1,11 @@
 from random import randrange
-#TODO VND busca local
+
+
+# TODO VND busca local
 
 class Neighbor:
     def exchange(self, solution, a, b):
-        #TODO todas combinações e pegar melhor
+        # TODO todas combinações e pegar melhor
         if a == b:
             return solution
         demand_a = solution.demand_from_car[a]

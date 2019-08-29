@@ -5,37 +5,55 @@ from random import randrange
 
 from data.generator import MatrixLoad
 from v2.util.map import MapIndex
+from v2.util.solver import all_goals
 
 
 class Node:
-
     def __init__(self, car, goals):
         self.routes = []
         self.cars = car
         self.goals = goals
-        self.car_x_goal = [[0 for j in range((len(self.goals)))] for i in range((len(self.cars)))]
 
     def f(self):
         cost = 0
         for i in self.cars:
-            cost += i.cost
+            cost += i.total_cost
         return cost
 
     def print_test(self):
+        total_cost = 0
+        total_hop = 0
+        print('-----------------------------------------')
         for index, value in enumerate(self.cars):
             if len(value.task_list) != 0:
-                print(value.route, value.task_list)
+                total_cost += value.calculate_cost()
+                total_hop += len(value.route)
+        print('total_hop: %d, total_cost: %.2f' % (total_hop, total_cost))
+        print('-----------------------------------------')
 
     def clone(self):
         return copy.deepcopy(self)
 
+    def task_of(self, index):
+        return self.cars[index].task_list
+
+    def routes_of(self, index):
+        return self.cars[index].route
+
+    def possible(self):
+        # TODO Otimizar
+        for index, value in enumerate(self.cars):
+            if not value.possible():
+                return False
+        return True
+
 
 class Car:
-
     def __init__(self, capacity, cost, name):
         self.name = name
         self.origin = 0
         self.cost = cost
+        self.total_cost = -1
         self.capacity = capacity
         self.demand = 0
         self.task_list = []
@@ -54,13 +72,23 @@ class Car:
         result = str(self.capacity) + ' | ' + str(self.cost) + ' | ' + str(self.name)
         return result
 
+    def calculate_cost(self, force=False):
+        if not force and self.total_cost != -1:
+            return self.total_cost
+        self.total_cost = self.cost_route / self.cost
+        return self.total_cost
+
+    def possible(self):
+        # TODO Otimizar
+        return self.allocation <= self.capacity and all_goals(self.route, self.task_list)
+
 
 class Problem:
-
     def __init__(self, df, ref):
         cars = df[ref]['cars']
+        cap = df[ref]['cap']
         self.cities = json.loads(df[ref]['cities'])
-        self.cars = [Car(randrange(1, 5), cars[i], i) for i in range(len(cars))]
+        self.cars = [Car(cap[i], cars[i], i) for i in range(len(cars))]
         self.demand = json.loads(df[ref]['demand'])
         self.map = MapIndex()
         self.node = Node(self.cars, self.demand)

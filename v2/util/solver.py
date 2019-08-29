@@ -4,7 +4,7 @@ priority = []
 mtz = []
 
 
-def finale(path, goals):
+def all_goals(path, goals):
     return all(elem in path for elem in goals)
 
 
@@ -34,19 +34,20 @@ def star(origin, problem, task_list):
     priority.append((origin, 0.0))
 
     while priority.__len__() > 0:
-        next_node = priority.pop(0)
-        partial_path.append(next_node[0])
-        if finale(partial_path, task_list):
-            return partial_path
-        expand(next_node, problem)
+        next_node, current_cost = priority.pop(0)
+        partial_path.append(next_node)
+        if all_goals(partial_path, task_list):
+            return partial_path, current_cost
+        expand((next_node, current_cost), problem)
 
 
 def build_path(car, problem):
     global priority
-    path = star(car.origin, problem, car.task_list)
+    path, cost = star(car.origin, problem, car.task_list)
     priority = []
 
     car.route = path
+    car.total_cost = cost
     return car
 
 

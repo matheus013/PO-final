@@ -1,1 +1,19 @@
-{"instance1.json": {"name": "instance1.json", "cities": "[\"JUNQUEIRO\", \"IBATEGUARA\", \"S\\u00c3O MIGUEL DOS CAMPOS\", \"BOCA DA MATA\", \"MACEI\\u00d3\", \"PO\\u00c7O DAS TRINCHEIRAS\", \"COQUEIRO SECO\", \"JACAR\\u00c9 DOS HOMENS\", \"JARAMATAIA\", \"TAQUARANA\", \"SANTANA DO IPANEMA\", \"P\\u00c3O DE A\\u00c7\\u00daCAR\", \"CH\\u00c3 PRETA\", \"JAPARATINGA\", \"TRAIPU\", \"BARRA DE SANTO ANT\\u00d4NIO\", \"MATA GRANDE\", \"S\\u00c3O JOS\\u00c9 DA LAJE\", \"CANAPI\", \"CORURIPE\", \"SANTANA DO MUNDA\\u00da\", \"OLHO D'\\u00c1GUA DO CASADO\", \"JACU\\u00cdPE\", \"JOAQUIM GOMES\", \"PORTO CALVO\", \"S\\u00c3O LU\\u00cdS DO QUITUNDE\", \"LIMOEIRO DE ANADIA\", \"MAJOR ISIDORO\", \"TEOT\\u00d4NIO VILELA\", \"MINADOR DO NEGR\\u00c3O\"]", "demand": "[\"TAQUARANA\", \"PORTO CALVO\", \"SANTANA DO IPANEMA\", \"CANAPI\", \"JUNQUEIRO\", \"JAPARATINGA\", \"MATA GRANDE\", \"TRAIPU\", \"CORURIPE\", \"MINADOR DO NEGR\\u00c3O\"]", "cars": [8, 14, 12, 19, 13, 15, 14, 15, 6, 17]}}
+{
+  "instance1.json": {
+    "name": "instance1.json",
+    "cities": "[\"JUNQUEIRO\", \"IBATEGUARA\", \"S\\u00c3O MIGUEL DOS CAMPOS\", \"BOCA DA MATA\", \"MACEI\\u00d3\", \"PO\\u00c7O DAS TRINCHEIRAS\", \"COQUEIRO SECO\", \"JACAR\\u00c9 DOS HOMENS\", \"JARAMATAIA\", \"TAQUARANA\", \"SANTANA DO IPANEMA\", \"P\\u00c3O DE A\\u00c7\\u00daCAR\", \"CH\\u00c3 PRETA\", \"JAPARATINGA\", \"TRAIPU\", \"BARRA DE SANTO ANT\\u00d4NIO\", \"MATA GRANDE\", \"S\\u00c3O JOS\\u00c9 DA LAJE\", \"CANAPI\", \"CORURIPE\", \"SANTANA DO MUNDA\\u00da\", \"OLHO D'\\u00c1GUA DO CASADO\", \"JACU\\u00cdPE\", \"JOAQUIM GOMES\", \"PORTO CALVO\", \"S\\u00c3O LU\\u00cdS DO QUITUNDE\", \"LIMOEIRO DE ANADIA\", \"MAJOR ISIDORO\", \"TEOT\\u00d4NIO VILELA\", \"MINADOR DO NEGR\\u00c3O\"]",
+    "demand": "[\"TAQUARANA\", \"PORTO CALVO\", \"SANTANA DO IPANEMA\", \"CANAPI\", \"JUNQUEIRO\", \"JAPARATINGA\", \"MATA GRANDE\", \"TRAIPU\", \"CORURIPE\", \"MINADOR DO NEGR\\u00c3O\"]",
+    "cars": [
+      8,
+      14,
+      12,
+      19,
+      13,
+      15,
+      14,
+      15,
+      6,
+      17
+    ], "cap": [1, 2, 1, 5, 4, 2, 1, 5, 3, 1]
+  }
+}
