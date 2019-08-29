@@ -4,8 +4,8 @@ import json
 from random import randrange
 
 from data.generator import MatrixLoad
-from v2.util.map import MapIndex
-from v2.util.solver import all_goals
+from ils.util.map import MapIndex
+from ils.util.solver import all_goals
 
 
 class Node:
@@ -20,7 +20,7 @@ class Node:
             cost += i.total_cost
         return cost
 
-    def print_test(self, solution=False):
+    def print_test(self, current_round=-1, solution=False):
         total_cost = 0
         total_hop = 0
         si = 0
@@ -33,7 +33,10 @@ class Node:
                     print('s' + str(si) + ' -> route: ' + str(value.route) + ' | cost: ' + str(
                         value.calculate_cost()) + ' to tasks: ' + str(value.task_list))
                     si += 1
-        print('total_hop: %d, total_cost: %.2f' % (total_hop, total_cost))
+        if current_round != -1:
+            print('round: %d total_hop: %d, total_cost: %.2f' % (current_round, total_hop, total_cost))
+        else:
+            print('total_hop: %d, total_cost: %.2f' % (total_hop, total_cost))
         print('-----------------------------------------')
 
     def clone(self):

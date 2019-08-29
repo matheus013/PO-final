@@ -1,11 +1,9 @@
-import json
 from random import randrange
 
-import pandas as pd
-from tqdm import tqdm
+from geopy.distance import geodesic
 from geopy.extra.rate_limiter import RateLimiter
 from geopy.geocoders import Nominatim
-from geopy.distance import geodesic
+from tqdm import tqdm
 
 from data.file_helper import Helper
 

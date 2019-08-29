@@ -1,5 +1,5 @@
-from v2.neighborhood import exchange, move, combine, perturb
-from v2.util.solver import routing
+from ils.neighborhood import exchange, move, combine, perturb
+from ils.util.solver import routing
 
 neigh = [exchange, perturb, combine, move]
 

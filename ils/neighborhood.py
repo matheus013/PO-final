@@ -1,6 +1,6 @@
 from random import randrange
 
-from v2.util.solver import solver
+from ils.util.solver import solver
 
 
 def exchange(solution, problem):
