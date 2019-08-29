@@ -29,4 +29,4 @@ while not finale(current_round, 100):
         k = k + 1 if k < K_MAX else 2
     current_round += 1
 
-s.print_test()
+s.print_test(True)

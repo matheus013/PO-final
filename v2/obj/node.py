@@ -20,14 +20,19 @@ class Node:
             cost += i.total_cost
         return cost
 
-    def print_test(self):
+    def print_test(self, solution=False):
         total_cost = 0
         total_hop = 0
+        si = 0
         print('-----------------------------------------')
         for index, value in enumerate(self.cars):
-            if len(value.task_list) != 0:
+            if len(value.task_list) != 0 and len(value.route) != 0:
                 total_cost += value.calculate_cost()
                 total_hop += len(value.route)
+                if solution:
+                    print('s' + str(si) + ' -> route: ' + str(value.route) + ' | cost: ' + str(
+                        value.calculate_cost()) + ' to tasks: ' + str(value.task_list))
+                    si += 1
         print('total_hop: %d, total_cost: %.2f' % (total_hop, total_cost))
         print('-----------------------------------------')
 
@@ -41,7 +46,6 @@ class Node:
         return self.cars[index].route
 
     def possible(self):
-        # TODO Otimizar
         for index, value in enumerate(self.cars):
             if not value.possible():
                 return False
@@ -74,9 +78,9 @@ class Car:
 
     def calculate_cost(self, force=False):
         if not force and self.total_cost != -1:
-            return self.total_cost
+            return round(self.total_cost, 2)
         self.total_cost = self.cost_route / self.cost
-        return self.total_cost
+        return round(self.total_cost, 2)
 
     def possible(self):
         # TODO Otimizar

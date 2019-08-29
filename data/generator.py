@@ -70,6 +70,7 @@ class MatrixLoad:
     def get_matrix(only_read=False, ul='AL', uf=True):
         json_dist = 'dist.json'
         dist = {}
+
         df = MatrixLoad.loadCities(ul)
         for i in MatrixLoad.cities:
             if not (i in df):

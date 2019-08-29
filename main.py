@@ -1,25 +1,30 @@
 import copy
+import json
+import os
 from random import randrange, random
 
 from pyUFbr.baseuf import ufbr
 from tqdm import tqdm
 
+from data.file_helper import Helper
 from data.generator import MatrixLoad
 from solver.neighborhood import Neighbor
 from solver.solver import *
 
 maker = MatrixLoad()
-rounds = 10000
+rounds = 100
 
 ul = 'AL'
 # input
-MatrixLoad.cities = ufbr.list_cidades(ul)
+filename = "./instances/instance0.json"
+r = Helper.read(filename)
+MatrixLoad.cities = json.loads(r[os.path.basename(filename)]['cities'])
 
 p = Problem()
 
 p.origin = MatrixLoad.rand_city()
 
-#TODO gerar instancia, e salvar um conjunto
+# TODO gerar instancia, e salvar um conjunto
 p.mtz = MatrixLoad.get_matrix(True, ul)
 
 n = randrange(3, len(MatrixLoad.cities) / 2)
